@@ -51,4 +51,3 @@ function includeWith($filePath, $variables = array())
 
     return $output;
 }
-
