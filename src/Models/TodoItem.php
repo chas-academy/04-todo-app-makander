@@ -22,28 +22,23 @@ class TodoItem extends Model
         return $result;
     }
 
-    // $query = "SELECT * FROM " . static::TABLENAME . " WHERE id = :id";
-
     public static function updateTodo($todoId, $title, $completed = null)
     {
-        $query = "UPDATE todos SET 
-        title = :title, 
-        completed = :completed 
+        $query = "UPDATE ". static::TABLENAME . " SET 
+        title = :title 
         WHERE id = :id";
+
         static::$db->query($query);
-        //static::$db->bind(":id", $todoId, ":title", $title, ":completed", $completed);
-        $result = static::$db->execute(array(":id" => $todoId,
-        ":title"=> $title,
-        ":completed"=>$completed));
+        static::$db->bind(":title", $title);
+        // static::$db->bind(":completed", $completed);
+        static::$db->bind(":id", $todoId);
+        $result = static::$db->execute();
 
         if (!$result) {
             return;
         };
 
         return $result;
-
-
-        $stm->execute(array(":user_id" => $user_id, ":hash" => $hash, ":expire" => $future, ":hash2" => $hash));
     }
 
     public static function deleteTodo($todoId)
@@ -51,7 +46,7 @@ class TodoItem extends Model
         $query = "DELETE FROM " . static::TABLENAME . " WHERE id = :id";
         static::$db->query($query);
         static::$db->bind(":id", $todoId);
-        $result = static::$db->execute([':id', $todoId]);
+        $result = static::$db->execute();
 
         if (!$result) {
             return;
