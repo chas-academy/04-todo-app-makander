@@ -30,7 +30,6 @@ class TodoItem extends Model
 
         static::$db->query($query);
         static::$db->bind(":title", $title);
-        // static::$db->bind(":completed", $completed);
         static::$db->bind(":id", $todoId);
         $result = static::$db->execute();
 
