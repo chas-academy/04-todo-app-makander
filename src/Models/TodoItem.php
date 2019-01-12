@@ -25,12 +25,14 @@ class TodoItem extends Model
     public static function updateTodo($todoId, $title, $completed = null)
     {
         $query = "UPDATE ". static::TABLENAME . " SET 
-        title = :title 
+        title = :title,
+        completed = :completed
         WHERE id = :id";
 
         static::$db->query($query);
-        static::$db->bind(":title", $title);
         static::$db->bind(":id", $todoId);
+        static::$db->bind(":title", $title);
+        static::$db->bind(":completed", $completed);
         $result = static::$db->execute();
 
         if (!$result) {
