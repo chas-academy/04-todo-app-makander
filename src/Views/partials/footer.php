@@ -4,7 +4,6 @@
 })) ?>
         item<?= "".count($todos) !== 1 ? "s" : "" ?>
         left</span>
-
     <form method="post" action="todos/clear-completed">
         <button class="clear-completed">Clear completed</button>
     </form>
@@ -15,7 +14,7 @@
 
 <footer class="site-footer">
     <div class="small-container">
-        <p class="text-center">Made by <a href="#">Your Name Here</a></p>
+        <p class="text-center">Made by <a href="#">Nils Makander</a></p>
     </div>
 </footer>
 

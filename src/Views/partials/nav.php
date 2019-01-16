@@ -7,15 +7,7 @@
 
 <section class="main">
     <form method="post" action="todos/toggle-all">
-        <?php count(array_filter($todos, function ($todo) {
-    if ($todo['completed'] === "false") {
-        $todo['completed'] = "true";
-    }
-})); ?>
         <input id="toggle-all" name="completed" class="toggle-all" type="checkbox" onChange="submit();">
-
-
-
         <label for="toggle-all">Mark all as complete</label>
     </form>
 </section>
