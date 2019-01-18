@@ -70,4 +70,6 @@ abstract class Model
     }
 }
 
+
+
 Model::initialize();

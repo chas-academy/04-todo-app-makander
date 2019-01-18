@@ -90,4 +90,16 @@ class TodoController extends Controller
         }
         // (OPTIONAL) TODO: This action should remove all completed todos from the table.
     }
+
+    public function getCompleted()
+    {
+        $todos = TodoItem::findCompleted();
+        return $this->view('index', ['todos' => $todos]);
+    }
+
+    public function getNotCompleted()
+    {
+        $todos = TodoItem::findNotCompleted();
+        return $this->view('index', ['todos' => $todos]);
+    }
 }

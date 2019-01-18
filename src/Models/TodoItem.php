@@ -84,4 +84,38 @@ class TodoItem extends Model
         };
         return $result;
     }
+
+    public static function findCompleted()
+    {
+        try {
+            $query = "SELECT * FROM " . static::TABLENAME . " WHERE completed = 2";
+            self::$db->query($query);
+            $results = self::$db->resultset();
+
+            if (!empty($results)) {
+                return $results;
+            } else {
+                return [];
+            }
+        } catch (PDOException $err) {
+            return $err->getMessage();
+        }
+    }
+
+    public static function findNotCompleted()
+    {
+        try {
+            $query = "SELECT * FROM " . static::TABLENAME . " WHERE completed = 1";
+            self::$db->query($query);
+            $results = self::$db->resultset();
+
+            if (!empty($results)) {
+                return $results;
+            } else {
+                return [];
+            }
+        } catch (PDOException $err) {
+            return $err->getMessage();
+        }
+    }
 }
