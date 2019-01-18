@@ -4,9 +4,19 @@
 })) ?>
         item<?= "".count($todos) !== 1 ? "s" : "" ?>
         left</span>
-    <form method="post" action="todos/clear-completed">
+
+    <ul class="filters">
+    <li><a href="/ " >All</a></li>
+    <li><a href="/todos/notcompleted" >Active</a></li>
+    <li><a href="/todos/completed" >Completed</a></li>
+    </ul>
+
+
+    <form method="post" action="/todos/clear-completed">
         <button class="clear-completed">Clear completed</button>
-    </form>     
+    </form>
+
+
 </footer>
 
 </main>
@@ -15,9 +25,6 @@
     <div class="small-container">
         <p class="text-center">Made by <a href="#">Nils Makander</a></p>
     </div>
-    <a href="/ ">All</a>
-    <a href="/todos/completed">Completed</a>
-    <a href="/todos/notcompleted">Not Completed</a>
 </footer>
 
 <script type="module" src="<?= $this->getScript('scripts'); ?>"></script>
